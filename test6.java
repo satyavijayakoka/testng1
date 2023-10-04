@@ -52,6 +52,8 @@ public class test6 {
 		// je.executeScript("arguments[0].removeAttribute('data-cy')", scrollelement);
 		String attributevalue = scrollelement.getAttribute("data-cy"); // two
 		System.out.println(attributevalue);
+		Assert.assertEquals(attributevalue, "two");
+		driver.close();
 		
 	}
 	@Test
@@ -80,17 +82,39 @@ public class test6 {
 	  driver.close();
 	
 	}
-	/*@Test
+	@Test
 	public void testcase6() throws InterruptedException {
-		// javascript executor to click on element
 		driver= new ChromeDriver();
 	   driver.get("http://www.webdriveruniversity.com/Actions/index.html");
 	   Actions ac = new Actions(driver);
-	   WebElement draggable = driver.findElement(By.cssSelector("#draggable"));
+	   WebElement draggable = driver.findElement(By.id("draggable"));
+	   WebElement droppable = driver.findElement(By.id("droppable"));
+	   ac.dragAndDrop(draggable, droppable).build().perform();
+	   Assert.assertEquals(droppable.getText(), "Dropped!");
+	   driver.close();
 	
-	}*/
+	}
 	
+	@Test
+	public void testcase7() throws InterruptedException {
+		driver= new ChromeDriver();
+	   driver.get("http://www.webdriveruniversity.com/Actions/index.html");
+	   Actions ac = new Actions(driver);
+	   WebElement clickable = driver.findElement(By.id("click-box"));
+	   ac.clickAndHold(clickable).build().perform();
+	   Assert.assertEquals(clickable.getText(), "Well done! keep holding that click now.....");
+	   driver.close();
 	
-	
+	}
+	@Test
+	public void testcase8() throws InterruptedException {
+		driver= new ChromeDriver();
+	   driver.get("http://www.webdriveruniversity.com/Actions/index.html");
+	   Actions ac = new Actions(driver);
+	   WebElement e = driver.findElement(By.cssSelector("#double-click"));
+	   ac.doubleClick(e).build().perform();
+	  Thread.sleep(5000);
+	  driver.close();
+	}	
 
 }
