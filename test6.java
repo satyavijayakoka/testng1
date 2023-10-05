@@ -115,6 +115,21 @@ public class test6 {
 	   ac.doubleClick(e).build().perform();
 	  Thread.sleep(5000);
 	  driver.close();
-	}	
+	  
+	}
+	@Test
+	public void testcase9() throws InterruptedException { 
+		driver= new ChromeDriver();
+	   driver.get("http://www.webdriveruniversity.com/Actions/index.html");
+	   Actions ac = new Actions(driver);
+	   // the webelement hoverover me : #div-hover > div.dropdown.hover > button
+	   WebElement e =driver.findElement(By.cssSelector("#div-hover > div.dropdown.hover > button"));
+		ac.moveToElement(e).build().perform();
+		//the webelement link: #div-hover > div.dropdown.hover > div > a
+		WebElement e2 = driver.findElement(By.cssSelector("#div-hover > div.dropdown.hover > div > a"));
+		Assert.assertEquals(true, e2.isDisplayed());
+		 driver.close();	
+		
+	}
 
 }
