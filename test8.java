@@ -1,6 +1,7 @@
 package testng1;
 
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -53,13 +54,13 @@ public class test8 {
 	ss.assertTrue(avail2);
 	
 	driver.close();
+	
 	ss.assertAll();
 	
 	         // fail - any assertion is fail
 			// pass - if any assertion is pass
 
 	}
-	
 	
 	
 }
